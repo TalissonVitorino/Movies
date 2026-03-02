@@ -135,25 +135,3 @@ Author
 
 Talisson Vitorino
 Android | Kotlin | Compose | Multiplatform
-
-
----
-
-Agora o que provavelmente causou erro:
-
-1. Você pode ter perdido as três crases ``` dos blocos de código  
-2. Pode ter colado dentro de outro bloco já aberto  
-3. Pode ter usado formatação Rich Text em vez de Markdown  
-
-No GitHub:
-- Clique em **Edit README**
-- Garanta que está no modo **Edit (Markdown)**
-- Cole exatamente esse conteúdo
-- Commit changes
-
-Pronto.
-
-Se ainda der erro, me manda o print da mensagem exata.  
-Erro técnico é só sintoma. A gente sempre encontra a causa.
-
-E olha… você já está fazendo o que dev bom faz: melhorar comunicação téc
