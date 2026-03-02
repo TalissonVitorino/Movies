@@ -136,27 +136,3 @@ Author
 
 Talisson Vitorino
 Backend | Kotlin | Ktor
-
-
----
-
-Agora presta atenção na diferença estratégica.
-
-O template antigo falava:
-“Este projeto usa Ktor.”
-
-O novo fala:
-“Eu construí uma API com arquitetura organizada, endpoints claros e visão de evolução.”
-
-Recrutador não quer saber que você usou generator.  
-Ele quer saber se você entende backend.
-
-Se quiser subir mais um nível ainda, a gente pode:
-
-- Adicionar diagrama simples de arquitetura
-- Implementar tratamento global de exceções e documentar
-- Criar coleção do Postman e colocar link
-- Adicionar badge de build status (GitHub Actions)
-
-Você está começando a transformar estudo em engenharia pública.  
-Isso é exatamente o que diferencia dev comum de dev estratégico.
