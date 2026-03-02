@@ -1,137 +1,162 @@
-# Movies
+# ktor-minhas-tarefas
 
-Kotlin Multiplatform application built with Compose Multiplatform.
+Simple REST API built with Ktor to manage tasks.
 
-The project explores shared UI, domain logic reuse, and clean separation between platform-specific and common layers.
+The project demonstrates backend fundamentals using Kotlin, including routing, JSON serialization, structured layering, and containerized execution.
 
 ---
 
 ## Overview
 
-Movies is a multiplatform client application designed to:
+This API provides basic task management capabilities, including:
 
-- Share business logic across Android and iOS  
-- Reuse UI via Compose Multiplatform  
-- Maintain clear architectural boundaries  
-- Demonstrate scalable project structure in KMP  
+- Create tasks
+- List tasks
+- Update tasks
+- Delete tasks
 
-### Targets
-
-- Android  
-- iOS  
-- Desktop JVM (optional)
+Designed as a foundation for scalable backend architecture using Ktor.
 
 ---
 
 ## Architecture
 
-The project follows a layered architecture with clear separation of concerns:
+The project follows a clear separation of responsibilities:
 
 
-composeApp/
-├── commonMain
-│ ├── presentation
-│ ├── domain
-│ └── data
-│
-├── androidMain
-├── iosMain
-└── jvmMain
+src/
+├── routes
+├── service
+├── model
+├── repository
+└── plugins
 
 
 ### Layers
 
-#### Presentation
-- Compose UI  
-- ViewModels  
-- UI state modeling  
+**Routes**
+- HTTP endpoints
+- Request/response mapping
 
-#### Domain
-- Use cases  
-- Business rules  
-- Platform-agnostic contracts  
+**Service**
+- Business logic
+- Validation rules
 
-#### Data
-- Repository implementations  
-- Remote API integration  
-- Mapping between DTO and domain models  
+**Repository**
+- Data access abstraction
+- Persistence layer (in-memory / database)
+
+**Model**
+- Domain models and DTOs
 
 ---
 
 ## Tech Stack
 
-- Kotlin Multiplatform  
-- Compose Multiplatform  
-- Kotlin Coroutines  
-- Ktor (if applicable)  
-- Kotlinx Serialization  
-- Gradle Kotlin DSL  
+- Kotlin
+- Ktor
+- Kotlinx Serialization
+- Gradle Kotlin DSL
+- Docker (optional)
 
 ---
 
-## State Management
+## API Endpoints (Example)
 
-UI state is modeled explicitly to avoid implicit side effects.
+### Create Task
 
-Pattern used:
 
-- Sealed UI state  
-- Immutable data models  
-- Structured concurrency with coroutines  
-- Explicit error handling  
+POST /tasks
 
----
 
-## Running the Project
+Request body:
 
-### Android
+```json
+{
+  "title": "Study Ktor",
+  "completed": false
+}
 
-macOS / Linux:
+Response:
 
-```bash
-./gradlew :composeApp:assembleDebug
+{
+  "id": 1,
+  "title": "Study Ktor",
+  "completed": false
+}
+List Tasks
+GET /tasks
+Update Task
+PUT /tasks/{id}
+Delete Task
+DELETE /tasks/{id}
+Running the Project
+Run locally
+./gradlew run
 
-Windows:
+Server will start at:
 
-.\gradlew.bat :composeApp:assembleDebug
+http://localhost:8080
+Run tests
+./gradlew test
+Build executable JAR
+./gradlew buildFatJar
+Docker
 
-Or run directly from Android Studio.
+Build image:
 
-iOS
+./gradlew buildImage
 
-Open /iosApp in Xcode and run on a simulator.
+Run container:
 
-API Configuration (If Applicable)
-
-Create a local.properties file:
-
-API_KEY=your_api_key
-
-Secrets are not committed to the repository.
-
+./gradlew runDocker
 Design Decisions
 
-UI is shared to reduce duplication between platforms
+Explicit routing structure to keep HTTP concerns isolated
 
-Platform-specific APIs are isolated in their respective source sets
+Business rules separated from transport layer
 
-Domain layer does not depend on platform implementations
+JSON serialization via kotlinx.serialization
 
-Clear separation enables future expansion (e.g., Desktop or Web targets)
+Prepared for migration from in-memory storage to database-backed persistence
 
 Roadmap
 
-Add pagination
+Add database integration (PostgreSQL)
 
-Introduce local caching
+Add validation middleware
 
-Expand test coverage
+Add request logging
 
-Improve error resilience
+Implement authentication
 
-CI integration
+Increase test coverage
 
 Author
 
 Talisson Vitorino
-Android | Kotlin | Compose | Multiplatform
+Backend | Kotlin | Ktor
+
+
+---
+
+Agora presta atenção na diferença estratégica.
+
+O template antigo falava:
+“Este projeto usa Ktor.”
+
+O novo fala:
+“Eu construí uma API com arquitetura organizada, endpoints claros e visão de evolução.”
+
+Recrutador não quer saber que você usou generator.  
+Ele quer saber se você entende backend.
+
+Se quiser subir mais um nível ainda, a gente pode:
+
+- Adicionar diagrama simples de arquitetura
+- Implementar tratamento global de exceções e documentar
+- Criar coleção do Postman e colocar link
+- Adicionar badge de build status (GitHub Actions)
+
+Você está começando a transformar estudo em engenharia pública.  
+Isso é exatamente o que diferencia dev comum de dev estratégico.
